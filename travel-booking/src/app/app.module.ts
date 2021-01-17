@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { Injector, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Injector, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,10 +16,11 @@ import { createCustomElement } from '@angular/elements';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [],
+  bootstrap: [AppComponent],
   entryComponents: [
     Booking2Component
-  ]
+  ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule {
   constructor(private injector: Injector) {

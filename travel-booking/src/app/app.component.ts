@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'travel-booking';
+
+  constructor() {
+    localStorage.setItem('test', 'web-components')
+  }
 }
