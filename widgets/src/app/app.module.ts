@@ -6,16 +6,16 @@ import { AppComponent } from './app.component';
 import { OriginalLogoComponent } from './original-logo/original-logo.component';
 import { createCustomElement } from '@angular/elements';
 import { environment } from 'src/environments/environment';
-
-function addBootstrap() {
-  return 
-}
+import { ContentOneComponent } from './content-one/content-one.component';
+import { ContentTwoComponent } from './content-two/content-two.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    OriginalLogoComponent
+    OriginalLogoComponent,
+    ContentOneComponent,
+    ContentTwoComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +27,9 @@ function addBootstrap() {
     ...(!environment.production && [AppComponent] || [])
   ],
   entryComponents: [
-    OriginalLogoComponent
+    OriginalLogoComponent,
+    ContentOneComponent,
+    ContentTwoComponent
   ]
 })
 export class AppModule {
@@ -35,7 +37,8 @@ export class AppModule {
   }
 
   ngDoBootstrap() {
-    const myCustomElement = createCustomElement(OriginalLogoComponent, { injector: this.injector });
-    customElements.define('original-logo', myCustomElement);
+    customElements.define('original-logo', createCustomElement(OriginalLogoComponent, { injector: this.injector }));
+    customElements.define('content-one', createCustomElement(ContentOneComponent, { injector: this.injector }));
+    customElements.define('content-two', createCustomElement(ContentTwoComponent, { injector: this.injector }));
   }
 }
