@@ -1,0 +1,5 @@
+website:
+	npm run dev:ssr	
+
+widgets:
+	http-server ./dist/widgets -p 8081
